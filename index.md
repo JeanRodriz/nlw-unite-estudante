@@ -1,0 +1,208 @@
+html usa tags , como exemplo h1 para deixar os textos grandes.
+<a href="https://google.com">google.com</a>
+# HTML
+
+*hypertext*
+*Markup*
+-tag
+-atributos
+*Language*
+
+
+# CSS
+/* cascanding stylesheet */
+
+# JavaScript
+'''Js 
+// variaveis 
+const mensagem = 'oi, tudo bem?'
+// Tipos de dados
+  // numeros
+  // strings 
+// funçao
+alert(mensagem) 
+'''
+
+
+// objeto javascript
+const participante = {
+  nome: "jean rodrigo",
+  email: "jean_rodrigo@",
+  dataInscricao: new Date(2024, 2, 22, 19, 20),
+  dataChekIn: new Date(2024, 2, 25, 22, 00),
+}
+// array
+let participantes = [
+  {
+  nome: "jean rodrigo",
+  email: "jean_rodrigo@",
+  dataInscricao: new Date(2024, 2, 22, 19, 20),
+  dataChekIn: new Date(2024, 2, 25, 22, 00),
+},
+]
+   // estrutura de repetiçao
+   for(let participante of participantes) {
+    // Faça algo
+    output = output + criarNovoParticipante(participante)
+    // ou faça algo aqui enquanto estiver pessoas na lista
+   }
+
+   // codigo pronto !!
+   let participantes = [
+  {
+    nome: "Jean Rodrigo",
+    email: "jean_rodrigo@gmail.com",
+    dataInscriçao: new Date(2024, 3, 05, 19, 23),
+    dataCheckIn: new Date(2024, 12, 04, 20, 20)
+  },
+  {
+    nome: "Ivone Rodrigo",
+    email: "ivone_rodrigo@gmail.com",
+    dataInscriçao: new Date(2024, 6, 13, 19, 23),
+    dataCheckIn: null
+  },
+  {
+    nome: "jack",
+    email: "participant3@gmail.com",
+    dataInscriçao: new Date(2024, 10, 01, 19, 23),
+    dataCheckIn: new Date(2024, 8, 01, 20, 20)
+  },
+  {
+    nome: "leti",
+    email: "participant4@gmail.com",
+    dataInscriçao: new Date(2024, 12, 01, 19, 23),
+    dataCheckIn: new Date(2024, 5, 01, 20, 20)
+  },
+  {
+    nome: "john",
+    email: "participant5@gmail.com",
+    dataInscriçao: new Date(2024, 8, 01, 19, 23),
+    dataCheckIn: new Date(2024, 1, 01, 20, 20)
+  },
+  {
+    nome: "lais",
+    email: "participant6@gmail.com",
+    dataInscriçao: new Date(2024, 2, 01, 19, 23),
+    dataCheckIn: new Date(2024, 4, 01, 20, 20)
+  },
+  {
+    nome: "meg",
+    email: "participant7@gmail.com",
+    dataInscriçao: new Date(2024, 1, 01, 19, 23),
+    dataCheckIn: new Date(2024, 7, 01, 20, 20)
+  },
+  {
+    nome: "vall",
+    email: "participant8@gmail.com",
+    dataInscriçao: new Date(2024, 7, 01, 19, 23),
+    dataCheckIn: new Date(2024, 3, 01, 20, 20)
+  },
+  {
+    nome: "angel",
+    email: "participant9@gmail.com",
+    dataInscriçao: new Date(2024, 6, 01, 19, 23),
+    dataCheckIn: new Date(2024, 9, 01, 20, 20)
+  },
+  {
+    nome: "sandra",
+    email: "participant10@gmail.com",
+    dataInscriçao: new Date(2024, 8, 01, 19, 23),
+    dataCheckIn: new Date(2024, 11, 01, 20, 20)
+  },
+];
+
+const criarNovoParticipante = (participante) => {
+  const dataInscriçao = dayjs(Date.now()).to(participante.dataInscriçao)
+  let dataCheckIn = dayjs(Date.now()).to(participante.dataCheckIn)
+  
+  if(participante.dataCheckIn == null) {
+    dataCheckIn = `
+    <button
+    data-email="${participante.email}"
+    onclick="fazerCheckIn(event)"
+    >
+    confirmar check-in
+    </button>
+    `
+
+  }
+
+  return `
+  <tr>
+      <td>
+        <strong>
+          ${participante.nome}
+        </strong>
+        <br>
+        <small>
+          ${participante.email}
+        </small>
+      </td>
+      <td>${dataInscriçao}</td>
+      <br>
+      <td>${dataCheckIn}</td>
+      <br>
+    </tr>
+  `
+}
+
+const atualizarLista = (participantes) => {
+  let output = ""
+   // estrutura de repetiçao
+   for(let participante of participantes) {
+    // Faça algo
+    output = output + criarNovoParticipante(participante)
+   }
+   //substituir informaçao do HTML
+  document.querySelector('tbody').innerHTML = output
+}
+atualizarLista(participantes)
+
+const adicionarParticipante = (event) => {
+  event.preventDefault()
+
+  const dadosDoFormulario = new FormData(event.target)
+  const participante = {
+    nome: dadosDoFormulario.get('nome'),
+    email: dadosDoFormulario.get('email'),
+    dataInscriçao: new Date(),
+    dataCheckIn: null
+  }
+  
+  // verificar se o participante existe
+   const participanteExiste = participantes.find((p) => {
+    return p.email == participante.email
+   })
+  
+  if(participanteExiste) {
+    alert('Email já cadastrado!')
+    return
+  }
+
+
+  participantes = [participante, ...participantes]
+  atualizarLista(participantes)
+
+  //limpar o formulario
+  event.target.querySelector('[name="nome"]').value = ""
+  event.target.querySelector('[name="email"]').value = ""
+   
+}
+
+const fazerCheckIn = (event) => {
+  // confirmar se realmente quer fazer checkin
+  const mensagemConfirmaçao = 'Tem certeza que gostaria de fazer o check-in?'
+
+  if(confirm(mensagemConfirmaçao) == false) {
+    return
+  }
+  // encontrar o participante dentro da lista
+  const participante = participantes.find((p) => {
+    return p.email == event.target.dataset.email
+  })
+  //atualizar o check-in do participante
+  participante.dataCheckIn = new Date()
+
+  //atualizar a lista de participantes
+  atualizarLista(participantes)
+}
