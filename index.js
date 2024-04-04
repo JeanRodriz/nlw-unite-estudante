@@ -12,50 +12,50 @@ let participantes = [
     dataCheckIn: null
   },
   {
-    nome: "jack",
-    email: "participant3@gmail.com",
+    nome: "jack sanos",
+    email: "jacksantos@gmail.com",
     dataInscriçao: new Date(2024, 10, 01, 19, 23),
     dataCheckIn: new Date(2024, 8, 01, 20, 20)
   },
   {
-    nome: "leti",
-    email: "participant4@gmail.com",
+    nome: "leticia morais",
+    email: "leticia_morais@hotmail.com",
     dataInscriçao: new Date(2024, 12, 01, 19, 23),
     dataCheckIn: new Date(2024, 5, 01, 20, 20)
   },
   {
-    nome: "john",
-    email: "participant5@gmail.com",
+    nome: "john reis",
+    email: "john.reis21@gmail.com",
     dataInscriçao: new Date(2024, 8, 01, 19, 23),
     dataCheckIn: new Date(2024, 1, 01, 20, 20)
   },
   {
-    nome: "lais",
-    email: "participant6@gmail.com",
+    nome: "lais da silva",
+    email: "laissilva6@gmail.com",
     dataInscriçao: new Date(2024, 2, 01, 19, 23),
     dataCheckIn: new Date(2024, 4, 01, 20, 20)
   },
   {
-    nome: "meg",
-    email: "participant7@gmail.com",
+    nome: "meg rodrigues",
+    email: "megrodrigues.21@hotmail.com",
     dataInscriçao: new Date(2024, 1, 01, 19, 23),
     dataCheckIn: new Date(2024, 7, 01, 20, 20)
   },
   {
-    nome: "vall",
-    email: "participant8@gmail.com",
+    nome: "valeria castanha",
+    email: "valeriacastanhasantos@gmail.com",
     dataInscriçao: new Date(2024, 7, 01, 19, 23),
     dataCheckIn: new Date(2024, 3, 01, 20, 20)
   },
   {
-    nome: "angel",
-    email: "participant9@gmail.com",
+    nome: "angelica da silva",
+    email: "angelica.da.silva@gmail.com",
     dataInscriçao: new Date(2024, 6, 01, 19, 23),
     dataCheckIn: new Date(2024, 9, 01, 20, 20)
   },
   {
-    nome: "sandra",
-    email: "participant10@gmail.com",
+    nome: "sandra munhois",
+    email: "sandrinha.mun@hotmail.com",
     dataInscriçao: new Date(2024, 8, 01, 19, 23),
     dataCheckIn: new Date(2024, 11, 01, 20, 20)
   },
